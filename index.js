@@ -1,5 +1,13 @@
 var drumButtonsCnt = document.querySelectorAll('.drum').length;
 
+function buttonAnimation(drumType) {
+  var activeButton = document.querySelector('.' + drumType);
+  activeButton.classList.add('pressed');
+  setTimeout(function () {
+    activeButton.classList.remove('pressed');
+  }, 1000);
+}
+
 function playDrum(drumType) {
   switch (drumType) {
     case 'w':
@@ -33,6 +41,7 @@ function playDrum(drumType) {
     default:
       console.error('Drum kit not found');
   }
+  buttonAnimation(drumType);
 }
 
 for (var i = 0; i < drumButtonsCnt; i++) {
